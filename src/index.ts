@@ -1,12 +1,25 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import subjectRoutes from './routes/subjects';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT
 
+if (!process.env.FRONTEND_URL) {
+    throw new Error('FRONTEND_URL not set; CORS will block cross-origin requests');
+}
+
 app.use(express.json());
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}))
+
+app.use('/api/subjects', subjectRoutes)
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
