@@ -8,6 +8,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT
 
+if (!process.env.FRONTEND_URL) {
+    throw new Error('FRONTEND_URL not set; CORS will block cross-origin requests');
+}
+
 app.use(express.json());
 app.use(cors({
     origin: process.env.FRONTEND_URL,
