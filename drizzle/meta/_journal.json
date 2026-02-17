@@ -8,6 +8,13 @@
       "when": 1770834199990,
       "tag": "0000_striped_stryfe",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1771304625032,
+      "tag": "0001_smart_namora",
+      "breakpoints": true
     }
   ]
 }
