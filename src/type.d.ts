@@ -1,3 +1,3 @@
-type UserRoles = "Admin" | "Teacher" | "Student";
+type UserRoles = "admin" | "teacher" | "student";
 
-type RateLimitRole = UserRoles | "Guest";
+type RateLimitRole = UserRoles | "guest";
