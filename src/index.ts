@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import subjectRoutes from './routes/subjects';
 import cors from 'cors';
+import securityMiddleware from './middleware/security';
 
 dotenv.config();
 
@@ -13,6 +14,8 @@ if (!process.env.FRONTEND_URL) {
 }
 
 app.use(express.json());
+app.use(securityMiddleware)
+app.use(cors())
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
