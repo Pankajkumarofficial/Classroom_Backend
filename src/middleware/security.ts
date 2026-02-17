@@ -1,7 +1,6 @@
 import { slidingWindow } from "@arcjet/node";
 import type { ArcjetNodeRequest } from "@arcjet/node";
 import type { NextFunction, Request, Response } from "express";
-
 import aj from "../config/arcjet.js";
 
 const securityMiddleware = async (
@@ -9,7 +8,6 @@ const securityMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  // If NODE_ENV is TEST, skip security middleware
   if (process.env.NODE_ENV === "test") {
     return next();
   }
