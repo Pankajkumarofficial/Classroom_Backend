@@ -2,7 +2,7 @@ import { and, desc, eq, getTableColumns, ilike, or, sql } from "drizzle-orm";
 import { Request, Response } from "express";
 import { db } from "../db/index.js";
 import { departments, subjects } from "../db/schema/index.js";
-import { SubjectsQuery } from "../types/types";
+import { SubjectsQuery } from "../types/types.js";
 
 export const searchController = async (req: Request<{}, {}, {}, SubjectsQuery>, res: Response,) => {
     try {
