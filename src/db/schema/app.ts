@@ -49,6 +49,7 @@ export const classes = pgTable(
   "classes",
   {
     id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+
     subjectId: integer("subject_id")
       .notNull()
       .references(() => subjects.id, { onDelete: "restrict" }),
@@ -56,6 +57,9 @@ export const classes = pgTable(
     teacherId: text("teacher_id")
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
+
+    // 🔥 ADD THIS BACK
+    inviteCode: varchar("invite_code", { length: 20 }).notNull(),
 
     name: varchar("name", { length: 255 }).notNull(),
     description: text("description"),
@@ -70,6 +74,7 @@ export const classes = pgTable(
     teacherIdx: index("classes_teacher_id_idx").on(table.teacherId),
   })
 );
+
 
 export const enrollments = pgTable(
   "enrollments",

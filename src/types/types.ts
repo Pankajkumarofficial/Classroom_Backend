@@ -4,3 +4,10 @@ export interface SubjectsQuery {
     page?: string;
     limit?: string;
 }
+
+export interface UsersQuery {
+    search?: string;
+    role?: string;
+    page?: string;
+    limit?: string;
+}
